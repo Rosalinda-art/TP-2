@@ -417,7 +417,11 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
             <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg border-l-4 border-purple-500">
               <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1">��� <strong>Eisenhower Matrix</strong></p>
               <p className="text-purple-700 dark:text-purple-300 text-xs mb-2">Smart prioritization based on importance + urgency</p>
-              <p className="text-purple-600 dark:text-purple-400 text-xs"><strong>Best for:</strong> Mixed workload with varying priorities</p>
+              <p className="text-purple-600 dark:text-purple-400 text-xs mb-1"><strong>Best for:</strong> Mixed workload with varying priorities</p>
+              <div className="flex items-center gap-1 text-xs">
+                <span className="text-red-600 dark:text-red-400">❌</span>
+                <span className="text-red-700 dark:text-red-300">Ignores frequency preferences</span>
+              </div>
             </div>
             <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border-l-4 border-blue-500">
               <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1">⚖️ <strong>Evenly Distributed</strong></p>
@@ -470,7 +474,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
         <div className="space-y-3 text-sm">
           <div className="grid grid-cols-1 gap-2">
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1">⏰ <strong>Daily Available Hours</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1">��� <strong>Daily Available Hours</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Maximum hours you want to study per day (excluding commitments)</p>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
