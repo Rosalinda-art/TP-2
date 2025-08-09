@@ -47,6 +47,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({
   const [showTaskTimeline, setShowTaskTimeline] = useState(false);
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showValidationErrors, setShowValidationErrors] = useState(false);
+  const [showFrequencyInfo, setShowFrequencyInfo] = useState(false);
   const today = new Date().toISOString().split('T')[0];
 
   // Auto-detect deadline type based on whether deadline is set
