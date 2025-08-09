@@ -635,7 +635,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
             <ul className="text-indigo-700 dark:text-indigo-300 space-y-1 text-xs">
               <li>🔄 <strong>Weekly Review:</strong> Check progress every Sunday and adjust</li>
               <li>📊 <strong>Track Patterns:</strong> Notice when you're most productive</li>
-              <li>�� <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
+              <li>⚡ <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
               <li>�� <strong>Start Small:</strong> Begin with 2-3 tasks, then scale up</li>
               <li>🏆 <strong>Celebrate Wins:</strong> Acknowledge completed sessions</li>
             </ul>
@@ -819,21 +819,39 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
   // Check if Next button should be enabled
   const canProceed = () => {
     if (!currentStep.requiresAction) return true;
-    
+
+    // Check if this requirement was already completed
+    const requirementKey = `${currentStep.id}-${currentStep.waitFor}`;
+    if (completedRequirements.has(requirementKey)) return true;
+
+    let isCurrentlyMet = false;
     switch (currentStep.waitFor) {
       case 'task-added':
-        return tasksCount > initialTasksCount;
+        isCurrentlyMet = tasksCount > initialTasksCount;
+        break;
       case 'commitment-added':
-        return commitmentsCount > initialCommitmentsCount;
+        isCurrentlyMet = commitmentsCount > initialCommitmentsCount;
+        break;
       case 'tab-changed':
-        return currentStep.targetTab && currentTab === currentStep.targetTab;
+        isCurrentlyMet = currentStep.targetTab && currentTab === currentStep.targetTab;
+        break;
       case 'study-plan-mode-changed':
-        return initialStudyPlanMode && currentStudyPlanMode && initialStudyPlanMode !== currentStudyPlanMode;
+        isCurrentlyMet = initialStudyPlanMode && currentStudyPlanMode && initialStudyPlanMode !== currentStudyPlanMode;
+        break;
       case 'timer-session-active':
-        return currentStep.targetTab && currentTab === currentStep.targetTab && hasActiveTimerSession;
+        isCurrentlyMet = currentStep.targetTab && currentTab === currentStep.targetTab && hasActiveTimerSession;
+        break;
       default:
-        return true;
+        isCurrentlyMet = true;
+        break;
     }
+
+    // If requirement is currently met, mark it as completed
+    if (isCurrentlyMet && !completedRequirements.has(requirementKey)) {
+      setCompletedRequirements(prev => new Set([...prev, requirementKey]));
+    }
+
+    return isCurrentlyMet;
   };
 
   const isNextButtonEnabled = canProceed();
