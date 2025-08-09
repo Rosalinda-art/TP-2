@@ -1192,12 +1192,15 @@ const CalendarView: React.FC<CalendarViewProps> = ({
           draggableAccessor={(event) => {
             if (event.resource.type !== 'study') return false;
 
-            // Check if session is missed - missed sessions cannot be dragged
+            // Check session status - only allow dragging of pending/active sessions
             const session = event.resource.data;
             const planDate = session.planDate || moment(event.start).format('YYYY-MM-DD');
             const sessionStatus = checkSessionStatus(session, planDate);
 
-            return sessionStatus !== 'missed';
+            // Don't allow dragging of missed, completed, or done sessions
+            return sessionStatus !== 'missed' &&
+                   sessionStatus !== 'completed' &&
+                   !session.done;
           }}
           resizable={false}
           onEventDrop={handleEventDrop}
