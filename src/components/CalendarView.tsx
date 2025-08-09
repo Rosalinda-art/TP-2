@@ -498,7 +498,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({
   };
 
   // Utility function to find available time slots with precise placement
-  const findNearestAvailableSlot = (targetStart: Date, sessionDuration: number, targetDate: string): { start: Date; end: Date } | null => {
+  const findNearestAvailableSlot = (targetStart: Date, sessionDuration: number, targetDate: string, excludeSession?: any): { start: Date; end: Date } | null => {
     if (!settings) return null;
 
     // Get all busy slots for the target date
@@ -508,6 +508,13 @@ const CalendarView: React.FC<CalendarViewProps> = ({
     studyPlans.forEach(plan => {
       if (plan.date === targetDate) {
         plan.plannedTasks.forEach(session => {
+          // Exclude the session being dragged to avoid self-overlap detection
+          if (excludeSession &&
+              session.taskId === excludeSession.taskId &&
+              session.sessionNumber === excludeSession.sessionNumber) {
+            return;
+          }
+
           if (session.status !== 'skipped' && session.startTime && session.endTime) {
             const sessionStart = moment(targetDate + ' ' + session.startTime).toDate();
             const sessionEnd = moment(targetDate + ' ' + session.endTime).toDate();
