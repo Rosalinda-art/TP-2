@@ -560,15 +560,19 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       return true;
     };
 
-    // IMPROVED: Try to place at exact target time first, with minimal snapping
-    // Snap to user's selected time interval for consistency with calendar grid
+    // IMPROVED: Try to place at exact target time first, then snap if needed
     const SNAP_INTERVAL = timeInterval * 60 * 1000; // Convert user's time interval to milliseconds
 
-    // Round target time to nearest time interval (matches calendar grid)
+    // First, try the exact drop position without snapping
+    const exactTargetEnd = new Date(targetStart.getTime() + sessionDurationMs);
+    if (isSlotValid(targetStart, exactTargetEnd)) {
+      return { start: targetStart, end: exactTargetEnd };
+    }
+
+    // If exact position doesn't work, try snapped to grid
     const roundedTarget = new Date(Math.round(targetStart.getTime() / SNAP_INTERVAL) * SNAP_INTERVAL);
     const targetEnd = new Date(roundedTarget.getTime() + sessionDurationMs);
 
-    // First, try the exact target location
     if (isSlotValid(roundedTarget, targetEnd)) {
       return { start: roundedTarget, end: targetEnd };
     }
