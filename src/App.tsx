@@ -1767,6 +1767,8 @@ function App() {
 
     return (
         <ErrorBoundary>
+            <OfflineIndicator />
+            <PWAInstallPrompt />
                             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 overflow-x-hidden">
                 {/* Animated background with particles */}
                 <div className="fixed inset-0 overflow-hidden pointer-events-none">
