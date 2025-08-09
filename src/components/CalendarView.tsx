@@ -1556,6 +1556,160 @@ const CalendarView: React.FC<CalendarViewProps> = ({
         </div>
       )}
 
+      {/* Info Modal for Drag & Drop */}
+      {showInfoModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-3xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center space-x-2">
+                  <BookOpen className="text-blue-500" size={28} />
+                  <span>Smart Calendar Guide</span>
+                </h2>
+                <button
+                  onClick={() => setShowInfoModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="space-y-6">
+                {/* Drag and Drop Section */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-5 border border-blue-200 dark:border-blue-800">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <svg className="text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                      <path d="M13 6v5h5l-6 6-6-6h5V6h2z"/>
+                    </svg>
+                    <h3 className="text-lg font-bold text-blue-800 dark:text-blue-200">Drag & Drop Sessions</h3>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-green-600 dark:text-green-400 font-bold mt-0.5">✓</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Move study sessions:</strong> Click and drag any study session to reschedule it to a different time
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-green-600 dark:text-green-400 font-bold mt-0.5">✓</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Smart placement:</strong> Sessions will place exactly where you drop them, or find the nearest available slot if there's a conflict
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-green-600 dark:text-green-400 font-bold mt-0.5">✓</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Automatic buffer time:</strong> Respects your buffer time settings between sessions to prevent scheduling conflicts
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-orange-600 dark:text-orange-400 font-bold mt-0.5">⚠</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Restrictions:</strong> Completed, missed sessions, and commitments cannot be moved
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Time Intervals Section */}
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-5 border border-purple-200 dark:border-purple-800">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <Clock className="text-purple-600 dark:text-purple-400" size={24} />
+                    <h3 className="text-lg font-bold text-purple-800 dark:text-purple-200">Time Interval Settings</h3>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-blue-600 dark:text-blue-400 font-bold mt-0.5">📍</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Precision control:</strong> Use smaller intervals (5-15 min) for more precise session placement
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-blue-600 dark:text-blue-400 font-bold mt-0.5">⚡</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Quick positioning:</strong> Larger intervals (30-60 min) provide faster, grid-aligned placement
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-green-600 dark:text-green-400 font-bold mt-0.5">💡</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Pro tip:</strong> Change intervals using the dropdown in the calendar toolbar for optimal positioning accuracy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Study Plan Integration */}
+                <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-lg p-5 border border-emerald-200 dark:border-emerald-800">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <Calendar className="text-emerald-600 dark:text-emerald-400" size={24} />
+                    <h3 className="text-lg font-bold text-emerald-800 dark:text-emerald-200">Study Plan Integration</h3>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-emerald-600 dark:text-emerald-400 font-bold mt-0.5">🔄</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Real-time sync:</strong> Rearranged sessions automatically update in your Study Plan view
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-emerald-600 dark:text-emerald-400 font-bold mt-0.5">📊</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Status tracking:</strong> Moved sessions show as "Rescheduled" with original time reference
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-emerald-600 dark:text-emerald-400 font-bold mt-0.5">✨</span>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        <strong>Manual override:</strong> Your manual changes take priority over automatic scheduling
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Visual Feedback */}
+                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-lg p-5 border border-amber-200 dark:border-amber-800">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <svg className="text-amber-600 dark:text-amber-400" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <h3 className="text-lg font-bold text-amber-800 dark:text-amber-200">Visual Feedback</h3>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-4 h-4 bg-green-500 rounded"></div>
+                        <span className="text-gray-700 dark:text-gray-300">Exact placement</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-4 h-4 bg-blue-500 rounded"></div>
+                        <span className="text-gray-700 dark:text-gray-300">Near target</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-4 h-4 bg-orange-500 rounded"></div>
+                        <span className="text-gray-700 dark:text-gray-300">Nearest available</span>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400 text-xs">
+                      Color-coded notifications show exactly where your session was placed and why
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-end pt-6 border-t border-gray-200 dark:border-gray-700">
+                <button
+                  onClick={() => setShowInfoModal(false)}
+                  className="px-6 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Got it!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Add modal for manual session */}
       {selectedManualSession && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
