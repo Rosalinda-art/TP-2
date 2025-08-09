@@ -658,10 +658,10 @@ const CalendarView: React.FC<CalendarViewProps> = ({
     const originalStartTime = moment(originalDate + ' ' + session.startTime).toDate();
     const timeDifferenceFromOriginal = Math.abs(moment(start).diff(moment(originalStartTime), 'minutes'));
 
-    // If the movement is less than 5 minutes, consider it a micro-movement and ignore
-    if (timeDifferenceFromOriginal < 5) {
-      setDragFeedback('Session returned to original position (micro-movement ignored)');
-      setTimeout(() => setDragFeedback(''), 3000);
+    // If the movement is less than 2 minutes, consider it a micro-movement and ignore
+    if (timeDifferenceFromOriginal < 2) {
+      setDragFeedback('Session kept in original position');
+      setTimeout(() => setDragFeedback(''), 2000);
       return;
     }
 
