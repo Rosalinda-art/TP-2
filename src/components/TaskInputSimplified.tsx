@@ -488,6 +488,55 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({
       <option value="weekly">📆 Weekly sessions - Once per week</option>
       <option value="flexible">⏰ When I have time - Flexible scheduling</option>
     </select>
+
+    {/* Show warning if frequency conflicts with deadline */}
+    {(() => {
+      if (!formData.deadline || formData.deadlineType === 'none' || formData.isOneTimeTask) return null;
+
+      const deadlineConflict = checkFrequencyDeadlineConflict({
+        deadline: formData.deadline,
+        estimatedHours: parseFloat(formData.estimatedHours) || 0,
+        targetFrequency: formData.targetFrequency,
+        deadlineType: formData.deadlineType as 'hard' | 'soft' | 'none',
+        minWorkBlock: formData.minWorkBlock
+      }, userSettings);
+
+      if (!deadlineConflict.hasConflict) return null;
+
+      return (
+        <div className="mt-2 p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded text-xs text-amber-700 dark:text-amber-200">
+          <div className="flex items-start gap-1">
+            <span className="text-amber-600 dark:text-amber-400">⚠️</span>
+            <div>
+              <div className="font-medium">Frequency preference may not allow completion before deadline</div>
+              <div className="mt-1">{deadlineConflict.reason}</div>
+              {deadlineConflict.recommendedFrequency && (
+                <div className="mt-1">
+                  <strong>Recommended:</strong> Switch to "{deadlineConflict.recommendedFrequency}" frequency, or daily scheduling will be used instead.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    })()}
+
+    {/* Information about frequency preferences and study plan modes */}
+    <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded text-xs">
+      <div className="flex items-start gap-1">
+        <span className="text-blue-600 dark:text-blue-400">ℹ️</span>
+        <div className="text-blue-700 dark:text-blue-300">
+          <div className="font-medium">About Frequency Preferences</div>
+          <div className="mt-1">
+            Frequency preferences are only applied when using <strong>"Evenly Distributed"</strong> study plan mode.
+            Other modes (Eisenhower Matrix, Balanced Priority) prioritize tasks by importance/urgency instead.
+          </div>
+          <div className="mt-1 text-blue-600 dark:text-blue-400">
+            You can change your study plan mode in Settings.
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 )}
 
