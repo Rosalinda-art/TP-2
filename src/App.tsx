@@ -31,6 +31,8 @@ import OptimizationModal from './components/OptimizationModal';
 import InteractiveTutorial from './components/InteractiveTutorial';
 import TutorialButton from './components/TutorialButton';
 import ErrorBoundary from './components/ErrorBoundary';
+import OfflineIndicator from './components/OfflineIndicator';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 import './utils/test-data-setup'; // Import test data setup for testing
 
 function App() {
