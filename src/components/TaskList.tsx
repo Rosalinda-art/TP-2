@@ -32,6 +32,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
   const [showCompletedTasks, setShowCompletedTasks] = useState(false);
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
   const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showFrequencyInfo, setShowFrequencyInfo] = useState(false);
 
   // Auto-detect deadline type based on whether deadline is set (similar to TaskInput)
   React.useEffect(() => {
