@@ -729,6 +729,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       setInitialTasksCount(tasksCount);
       setInitialCommitmentsCount(commitmentsCount);
       setActionCompleted(false);
+      setCompletedRequirements(new Set()); // Reset completed requirements when tutorial starts fresh
     }
   }, [isActive, currentStepIndex, tasksCount, commitmentsCount]);
 
