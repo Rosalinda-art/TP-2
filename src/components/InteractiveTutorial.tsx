@@ -46,6 +46,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
   const [initialTasksCount, setInitialTasksCount] = useState(tasksCount);
   const [initialCommitmentsCount, setInitialCommitmentsCount] = useState(commitmentsCount);
   const [initialStudyPlanMode, setInitialStudyPlanMode] = useState<string | null>(null);
+  const [completedRequirements, setCompletedRequirements] = useState<Set<string>>(new Set());
 
   const tutorialSteps: TutorialStep[] = [
     // Welcome & Overview
@@ -634,7 +635,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
             <ul className="text-indigo-700 dark:text-indigo-300 space-y-1 text-xs">
               <li>🔄 <strong>Weekly Review:</strong> Check progress every Sunday and adjust</li>
               <li>📊 <strong>Track Patterns:</strong> Notice when you're most productive</li>
-              <li>⚡ <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
+              <li>�� <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
               <li>�� <strong>Start Small:</strong> Begin with 2-3 tasks, then scale up</li>
               <li>🏆 <strong>Celebrate Wins:</strong> Acknowledge completed sessions</li>
             </ul>
