@@ -456,8 +456,11 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       requiresAction: true,
       customContent: (
         <div className="bg-orange-50 dark:bg-orange-900/20 p-2 rounded-lg text-sm">
-          <p className="text-orange-800 dark:text-orange-200 text-xs">
+          <p className="text-orange-800 dark:text-orange-200 text-xs mb-2">
             💡 <strong>Tip:</strong> Try switching between modes and check the calendar to see how session distribution changes!
+          </p>
+          <p className="text-orange-700 dark:text-orange-300 text-xs">
+            🎯 <strong>For Frequency Preferences:</strong> Use "Evenly Distributed" mode to respect your daily/weekly scheduling preferences. Other modes prioritize by importance/urgency.
           </p>
         </div>
       )
@@ -632,7 +635,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
               <li>🔄 <strong>Weekly Review:</strong> Check progress every Sunday and adjust</li>
               <li>📊 <strong>Track Patterns:</strong> Notice when you're most productive</li>
               <li>⚡ <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
-              <li>🎯 <strong>Start Small:</strong> Begin with 2-3 tasks, then scale up</li>
+              <li>�� <strong>Start Small:</strong> Begin with 2-3 tasks, then scale up</li>
               <li>🏆 <strong>Celebrate Wins:</strong> Acknowledge completed sessions</li>
             </ul>
           </div>
