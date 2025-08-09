@@ -415,19 +415,27 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
         <div className="space-y-3 text-sm">
           <div className="space-y-2">
             <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg border-l-4 border-purple-500">
-              <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1">🎯 <strong>Eisenhower Matrix</strong></p>
+              <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1">��� <strong>Eisenhower Matrix</strong></p>
               <p className="text-purple-700 dark:text-purple-300 text-xs mb-2">Smart prioritization based on importance + urgency</p>
               <p className="text-purple-600 dark:text-purple-400 text-xs"><strong>Best for:</strong> Mixed workload with varying priorities</p>
             </div>
             <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border-l-4 border-blue-500">
               <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1">⚖️ <strong>Evenly Distributed</strong></p>
               <p className="text-blue-700 dark:text-blue-300 text-xs mb-2">Equal time allocation across all tasks</p>
-              <p className="text-blue-600 dark:text-blue-400 text-xs"><strong>Best for:</strong> Similar priority tasks or maintaining balance</p>
+              <p className="text-blue-600 dark:text-blue-400 text-xs mb-1"><strong>Best for:</strong> Similar priority tasks or maintaining balance</p>
+              <div className="flex items-center gap-1 text-xs">
+                <span className="text-green-600 dark:text-green-400">✅</span>
+                <span className="text-green-700 dark:text-green-300">Respects frequency preferences</span>
+              </div>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg border-l-4 border-green-500">
               <p className="font-semibold text-green-800 dark:text-green-200 mb-1">🎯 <strong>Balanced Priority</strong></p>
               <p className="text-green-700 dark:text-green-300 text-xs mb-2">Weighted distribution favoring important tasks</p>
-              <p className="text-green-600 dark:text-green-400 text-xs"><strong>Best for:</strong> When some tasks are more critical than others</p>
+              <p className="text-green-600 dark:text-green-400 text-xs mb-1"><strong>Best for:</strong> When some tasks are more critical than others</p>
+              <div className="flex items-center gap-1 text-xs">
+                <span className="text-red-600 dark:text-red-400">❌</span>
+                <span className="text-red-700 dark:text-red-300">Ignores frequency preferences</span>
+              </div>
             </div>
           </div>
         </div>
