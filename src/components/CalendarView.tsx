@@ -7,7 +7,7 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import { StudyPlan, FixedCommitment, Task, StudySession, UserSettings } from '../types';
-import { BookOpen, Clock, Settings, X, Calendar } from 'lucide-react';
+import { BookOpen, Clock, Settings, X, Calendar as CalendarIcon } from 'lucide-react';
 import { checkSessionStatus, validateTimeSlot, doesCommitmentApplyToDate } from '../utils/scheduling';
 import { getLocalDateString } from '../utils/scheduling';
 import MobileCalendarView from './MobileCalendarView';
@@ -967,7 +967,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       if (sessionStatus === 'missed') {
         statusIndicator = '❌'; // Red X for missed
       } else if (sessionStatus === 'overdue') {
-        statusIndicator = '���'; // Clock for overdue
+        statusIndicator = '⏰'; // Clock for overdue
       }
 
       // Debug logging for calendar event status
