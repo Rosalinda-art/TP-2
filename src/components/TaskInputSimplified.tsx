@@ -476,9 +476,19 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({
           {/* Work Frequency Preference */}
 {!formData.isOneTimeTask && (
   <div>
-    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
-      How often would you like to work on this?
-    </label>
+    <div className="flex items-center gap-2 mb-2">
+      <label className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+        How often would you like to work on this?
+      </label>
+      <button
+        type="button"
+        onClick={() => setShowFrequencyInfo(!showFrequencyInfo)}
+        className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        title="About frequency preferences"
+      >
+        <Info size={16} />
+      </button>
+    </div>
     <select
       value={formData.targetFrequency}
       onChange={e => setFormData(f => ({ ...f, targetFrequency: e.target.value as any }))}
