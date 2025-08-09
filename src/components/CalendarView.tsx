@@ -1354,6 +1354,18 @@ const CalendarView: React.FC<CalendarViewProps> = ({
           box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
         }
 
+        /* Non-draggable events (completed, missed, or commitments) */
+        .rbc-event[data-event-type="commitment"]:hover {
+          cursor: default !important;
+          transform: none !important;
+        }
+
+        .rbc-event.non-draggable:hover {
+          cursor: not-allowed !important;
+          transform: none !important;
+          box-shadow: none !important;
+        }
+
         /* Enhanced grid lines during drag */
         .rbc-addons-dnd .rbc-time-slot {
           transition: background-color 0.1s ease !important;
