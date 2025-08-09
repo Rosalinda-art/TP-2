@@ -1087,13 +1087,24 @@ const CalendarView: React.FC<CalendarViewProps> = ({
             <BookOpen className="text-blue-600 dark:text-blue-400" size={28} />
             <span>Smart Calendar {isDragging && <span className="text-sm text-blue-500">(Dragging...)</span>}</span>
           </h2>
-          <button
-            onClick={() => setShowColorSettings(true)}
-            className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
-            title="Customize Colors"
-          >
-            <Settings size={20} className="text-gray-600 dark:text-gray-300" />
-          </button>
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => setShowInfoModal(true)}
+              className="p-2 rounded-lg bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-700 transition-colors"
+              title="Learn about Drag & Drop"
+            >
+              <svg size={20} className="text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+              </svg>
+            </button>
+            <button
+              onClick={() => setShowColorSettings(true)}
+              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
+              title="Customize Colors"
+            >
+              <Settings size={20} className="text-gray-600 dark:text-gray-300" />
+            </button>
+          </div>
         </div>
       {/* Legends */}
       <div className="mb-4 flex flex-wrap gap-4">
