@@ -136,6 +136,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({
   const [isMobile, setIsMobile] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dragFeedback, setDragFeedback] = useState<string>('');
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
 
   // Mobile detection
