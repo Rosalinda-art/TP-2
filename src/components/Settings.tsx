@@ -732,23 +732,6 @@ const Settings: React.FC<SettingsProps> = ({
                 </div>
               </div>
 
-              {/* Enhanced Information Panel */}
-              {studyPlanMode !== 'even' && (
-                <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
-                  <div className="flex items-start gap-2">
-                    <AlertTriangle size={16} className="text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm text-amber-800 dark:text-amber-200 font-medium">
-                        Frequency Preferences Inactive
-                      </p>
-                      <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">
-                        The current mode prioritizes tasks by importance/urgency instead of your frequency settings.
-                        Switch to "Evenly Distributed" to use frequency preferences.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
 
             </div>
           </div>
