@@ -1234,7 +1234,7 @@ const TaskInput: React.FC<TaskInputProps> = ({
                     
                     <div className="bg-teal-50 dark:bg-teal-900/30 p-3 rounded-lg">
                       <h5 className="font-medium text-teal-800 dark:text-teal-200 mb-1">Frequency Preferences</h5>
-                      <p className="text-sm">High impact tasks maintain consistent frequency even with tight schedules. Low impact tasks may have reduced frequency.</p>
+                      <p className="text-sm">Frequency preferences (daily, weekly, etc.) are only applied in <strong>"Evenly Distributed"</strong> mode. Other study plan modes prioritize tasks by importance/urgency instead.</p>
                     </div>
                   </div>
                 </div>
