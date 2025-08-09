@@ -137,6 +137,7 @@ const TaskInput: React.FC<TaskInputProps> = ({
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showImportanceHelpModal, setShowImportanceHelpModal] = useState(false);
   const [showTimeEstimationModal, setShowTimeEstimationModal] = useState(false);
+  const [showFrequencyInfo, setShowFrequencyInfo] = useState(false);
   const [estBase, setEstBase] = useState(formData.estimatedHours || '1');
   // Remove estAdjusted state, use only local let estAdjusted
   const estimationHelperRef = useRef<HTMLDivElement>(null);
