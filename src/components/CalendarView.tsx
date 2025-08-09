@@ -1642,7 +1642,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({
                 {/* Study Plan Integration */}
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-lg p-5 border border-emerald-200 dark:border-emerald-800">
                   <div className="flex items-center space-x-2 mb-4">
-                    <Calendar className="text-emerald-600 dark:text-emerald-400" size={24} />
+                    <CalendarIcon className="text-emerald-600 dark:text-emerald-400" size={24} />
                     <h3 className="text-lg font-bold text-emerald-800 dark:text-emerald-200">Study Plan Integration</h3>
                   </div>
                   <div className="space-y-3 text-sm">
