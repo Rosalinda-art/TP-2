@@ -645,8 +645,8 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       return;
     }
 
-    // Find the nearest available slot
-    const availableSlot = findNearestAvailableSlot(start, sessionDuration, targetDate);
+    // Find the nearest available slot, excluding the session being dragged
+    const availableSlot = findNearestAvailableSlot(start, sessionDuration, targetDate, session);
 
     if (!availableSlot) {
       setDragFeedback('No available time slot found for this session');
@@ -896,7 +896,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       case 'health':
         return '🏥';
       case 'learning':
-        return '🎓';
+        return '����';
       case 'finance':
         return '💰';
       case 'home':
