@@ -597,22 +597,24 @@ const TaskInput: React.FC<TaskInputProps> = ({
                   </div>
                 )}
 
-                {/* Information about frequency preferences and study plan modes */}
-                <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded text-xs">
-                  <div className="flex items-start gap-1">
-                    <span className="text-blue-600 dark:text-blue-400">ℹ️</span>
-                    <div className="text-blue-700 dark:text-blue-300">
-                      <div className="font-medium">About Frequency Preferences</div>
-                      <div className="mt-1">
-                        Frequency preferences are only applied when using <strong>"Evenly Distributed"</strong> study plan mode.
-                        Other modes (Eisenhower Matrix, Balanced Priority) prioritize tasks by importance/urgency instead.
-                      </div>
-                      <div className="mt-1 text-blue-600 dark:text-blue-400">
-                        You can change your study plan mode in Settings.
+                {/* Collapsible information about frequency preferences and study plan modes */}
+                {showFrequencyInfo && (
+                  <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded text-xs">
+                    <div className="flex items-start gap-1">
+                      <span className="text-blue-600 dark:text-blue-400">ℹ️</span>
+                      <div className="text-blue-700 dark:text-blue-300">
+                        <div className="font-medium">About Frequency Preferences</div>
+                        <div className="mt-1">
+                          Frequency preferences are only applied when using <strong>"Evenly Distributed"</strong> study plan mode.
+                          Other modes (Eisenhower Matrix, Balanced Priority) prioritize tasks by importance/urgency instead.
+                        </div>
+                        <div className="mt-1 text-blue-600 dark:text-blue-400">
+                          You can change your study plan mode in Settings.
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             )}
 
